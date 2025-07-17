@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit(docs/**)",
+      "Edit(logs/**)",
+      "Edit(/tmp/**)",
+      "Bash(git diff*)",
+      "Bash(pnpm build)",
+      "Bash(cargo check)",
+      "Bash(cargo build*)",
+      "Bash(chmod +x *)",
+      "Bash(./scripts/*)",
+      "Bash(scripts/*)",
+      "Read(docs/**)",
+      "WebFetch(*)"
+    ]
+  }
+}
