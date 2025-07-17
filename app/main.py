@@ -52,7 +52,8 @@ class StoryNavigator:
 
     def get_choice_story(self, level: int) -> Optional[Dict]:
         """获取指定层级的选择故事"""
-        key = f"FM_CHOICE.{level}"
+        _key = f"FM_CHOICE.{level}"
+        LOG.info(f"获取选择故事: {_key}")
         return self.fm_choice.get(str(level), None)
 
     def get_story_branch(self, path: str) -> Optional[Dict]:
@@ -105,16 +106,16 @@ def main():
         fm_choice = navigator.fm_choice.get("FM_CHOICE", {})
         if fm_choice:
             st.markdown(f"**{fm_choice.get('title', '')}**")
-            # st.markdown(fm_choice.get("story", ""))
-            st.write_stream(stream_text_smart(fm_choice.get("story", "")))
+            st.markdown(fm_choice.get("story", ""))
+            # st.write_stream(stream_text_smart(fm_choice.get("story", "")))
 
     with col2:
         st.subheader("🌟 故事的开端")
         fm_story = navigator.fm_story.get("FM_STORY", {})
         if fm_story:
             st.markdown(f"**{fm_story.get('title', '')}**")
-            # st.markdown(fm_story.get("story", ""))
-            st.write_stream(stream_text_smart(fm_story.get("story", "")))
+            st.markdown(fm_story.get("story", ""))
+            # st.write_stream(stream_text_smart(fm_story.get("story", "")))
 
     st.divider()
 
@@ -140,8 +141,8 @@ def main():
         if choice_story:
             st.subheader(f"🔮 第 {st.session_state.current_level} 层选择")
             st.markdown(f"**{choice_story.get('title', '')}**")
-            # st.markdown(choice_story.get("story", ""))
-            st.write_stream(stream_text_smart(choice_story.get("story", "")))
+            st.markdown(choice_story.get("story", ""))
+            # st.write_stream(stream_text_smart(choice_story.get("story", "")))
 
             # 选择按钮
             st.divider()
