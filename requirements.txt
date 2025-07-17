@@ -1,0 +1,7 @@
+# devops
+Cython 
+wheel
+python-box[all]~=7.0
+loguru
+# apps
+streamlit
