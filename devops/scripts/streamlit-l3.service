@@ -1,0 +1,27 @@
+[Unit]
+Description=Streamlit L3 FMHub Application
+After=network.target
+
+[Service]
+Type=simple
+User=zoomq
+Group=zoomq
+WorkingDirectory=/opt/src/streamlit/l3
+# 直接使用完整路径
+ExecStart=/home/zoomq/miniforge3/envs/py313/bin/streamlit run app/main.py --server.port=18051 --server.address=127.0.0.1
+#ExecStart=/opt/src/streamlit/l3/devops/scripts/start-streamlit.sh
+
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+# ... 其他配置
+#ExecStartPost=/bin/sleep 10
+#ExecStartPost=/opt/src/streamlit/l3/healthcheck.sh
+
+# 环境变量
+Environment="PATH=/home/zoomq/miniforge3/envs/py313/bin:/usr/bin:/bin"
+Environment="HOME=/home/zoomq"
+
+[Install]
+WantedBy=multi-user.target
